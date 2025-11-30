@@ -29,7 +29,11 @@ public:
             cout<<"X";
         }
     }
-    void DiChuyen(int Huong){
+    void VeScore(int Score){
+        gotoxy(MAXX + 1, 1);
+        cout << "Score: " << Score;
+    }
+    void DiChuyen(int Huong,int& Score){
         for (int i = DoDai-1; i>0;i--)
             A[i] = A[i-1];
         if (Huong==0) A[0].x = A[0].x + 1;
@@ -59,6 +63,7 @@ int main()
 {
     CONRAN r;
     int Huong = 0;
+    int Score = 0;
     char t;
 
     while (1){
@@ -71,13 +76,16 @@ int main()
         }
         system("cls");
         r.Ve();
+        r.VeScore(Score);
         r.VeKhung();
-        r.DiChuyen(Huong);
+        r.DiChuyen(Huong,Score);
         Sleep(300);
     if (r.KiemTraVaCham())
     {
         gotoxy(MAXX/2-5,MAXY/2);
-        cout<<"GAME OVER";
+        cout<<"GAME OVER\n";
+        gotoxy(MAXX/2-7,MAXY/2+1);
+        cout<<"YOUR SCORE: "<< Score << "\n";
         break;
     }
 }
