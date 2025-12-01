@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <cstdlib>
 #include <conio.h>
+#include <ctime>
 using namespace std;
 void gotoxy( int column, int line );
 struct Point{
@@ -87,8 +88,8 @@ int main()
     Qua.y = rand() % (MAXY - MINY) + MINY;
     
     while (1){
-        if (kbhit()){
-            t = getch();
+        if (_kbhit()){
+            t = _getch();
             if (t=='a' && Huong != 0) Huong = 2;
             if (t=='w' && Huong != 1) Huong = 3;
             if (t=='d' && Huong != 2) Huong = 0;
